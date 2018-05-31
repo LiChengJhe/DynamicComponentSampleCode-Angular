@@ -13,6 +13,7 @@ import { NoteComponent } from './note/note.component';
     SampleCodeRoutingModule
   ],
   declarations: [ DynamicComponentSampleComponent, NoteComponent],
-  exports: [DynamicComponentSampleComponent, NoteComponent]
+  exports: [DynamicComponentSampleComponent, NoteComponent],
+  entryComponents: [NoteComponent]
 })
 export class SampleCodeModule { }
