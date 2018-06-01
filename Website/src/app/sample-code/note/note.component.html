@@ -1,11 +1,11 @@
 <div class="col-sm-12">
-  <div class="card">
+  <div class="card" >
     <div class="card-header font-weight-bold text-white bg-info">
       {{'Note['+this.NoteID+']'}}
     </div>
     <div class="card-body">
 
-      <form [formGroup]="this.Form" class="form-horizontal" (ngSubmit)="OnSubmit()" role="form">
+      <form [formGroup]="this.Form" class="form-horizontal" role="form">
         <div class="form-row">
           <div class="form-group col-sm-12">
             <h5 style="display:inline">
@@ -31,7 +31,7 @@
       </form>
     </div>
     <div class="card-footer">
-      <button type="button" class="btn btn-secondary col-sm-3 offset-9" >Close</button>
+      <button type="button" [attr.noteid]="this.NoteID" class="btn btn-secondary col-sm-3 offset-9" >Close</button>
     </div>
   </div>
 
