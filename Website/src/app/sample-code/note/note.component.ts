@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
+
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
@@ -8,11 +9,14 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class NoteComponent implements OnInit {
   Form: FormGroup;
+  NoteID: number;
+  constructor() {
+  }
 
-  constructor() { }
   ngOnInit() {
     this.InitForm();
   }
+
   InitForm(): void {
     this.Form = new FormGroup({
       Title: new FormControl(null),
@@ -20,9 +24,7 @@ export class NoteComponent implements OnInit {
     });
   }
 
-  OnSubmit() {
-
+  OnSubmit(): void {
   }
-
 
 }

@@ -1,2 +1,16 @@
-<ng-container #Container></ng-container>
-
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="w-100">
+    <ng-container #Container>
+    </ng-container>
+  </div>
+  </div>
+</div>
+<button type="button" class="btn btn-sm btn-warning text-white" style="position: fixed; z-index: 1;
+right:80px; top:90vh;width: 50px; height: 50px; border-radius: 50px;" (click)="this.GetAllNotes()">
+  <i class="fa fa-info fa-2x" style="margin:3px 0px"></i>
+</button>
+<button type="button" class="btn btn-sm btn-danger text-white" style="position: fixed; z-index: 1;
+right:20px; top:90vh;width: 50px; height: 50px; border-radius: 50px;" (click)="this.AddNoteComponent()">
+  <i class="fa fa-plus fa-2x" style="margin:3px 0px"></i>
+</button>
