@@ -37,7 +37,7 @@ export class DynamicComponentSampleComponent implements OnInit, AfterViewChecked
   GetAllNotes() {
     const dataSet: any[] = [];
     for (const i of this._Notes) {
-      dataSet.push(i.Form.value);
+      dataSet.push(i.Component.Form.value);
     }
 
     toastr.options = {
