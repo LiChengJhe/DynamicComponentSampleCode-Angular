@@ -47,29 +47,20 @@ export class DynamicComponentSampleComponent implements OnInit, AfterViewChecked
   }
 
   ngAfterViewChecked(): void {
-
-    if (!_.find(this._Notes, (i) => i.Component.NoteID === this._Component.NoteID)) {
+    if (!_.find(this._Notes, (i) => i.Component.NoteID == this._Component.NoteID)) {
       this._Notes.push({
         Component: this._Component,
         DelNoteEvent: fromEvent(
           $('button[noteid="' + this._Component.NoteID + '"]'), 'click')
           .pipe(take(1)).subscribe((e: MouseEvent) => {
-            const noteID: number = (e.target as any).getAttribute('noteid') as number;
-
+            const noteID: number = $(e.target).attr('noteid') as number;
             $.each($('button[noteid]'), (index, val) => {
-              if ($(val).attr('noteid') === noteID) {
+              if ($(val).attr('noteid') == noteID) {
+                this._Notes = this._Notes.filter((i) => Number(i.Component.NoteID)  != noteID);
                 this._Container.remove(index);
-                this._Notes = this._Notes.filter((i) => {
-                  if (i.Component.NoteID === noteID) {
-                    i.Component.DelNoteEvent.unsubscribe();
-                    return false;
-                  } else  { return true; }
-                });
-
                 return false;
               }
             });
-
           })
       });
     }
