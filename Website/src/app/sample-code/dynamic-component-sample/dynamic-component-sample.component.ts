@@ -5,7 +5,6 @@ import {
 import { NoteComponent } from '../note/note.component';
 import * as _ from 'lodash';
 import { fromEvent, pipe, Subscription } from 'rxjs';
-import { take } from 'rxjs/operators';
 declare var $: any;
 declare var toastr: any;
 @Component({
