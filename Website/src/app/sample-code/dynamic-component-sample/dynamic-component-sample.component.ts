@@ -41,16 +41,19 @@ export class DynamicComponentSampleComponent implements OnInit, AfterViewChecked
     toastr.warning(JSON.stringify(dataSet));
   }
   ngAfterViewChecked(): void {
-    if (!_.find(this._NoteComponents, (i) => i.Component.NoteID === this._CurNoteComponent.NoteID)) {
+    // tslint:disable-next-line:triple-equals
+    if (!_.find(this._NoteComponents, (i) => i.NoteComponent.NoteID as number == this._CurNoteComponent.NoteID)) {
       this._NoteComponents.push({
-        Component: this._CurNoteComponent,
-        DelNoteEvent: fromEvent(
+        NoteComponent: this._CurNoteComponent,
+        DelNoteComponentEvent: fromEvent(
           $('button[noteid="' + this._CurNoteComponent.NoteID + '"]'), 'click')
-          .pipe(take(1)).subscribe((e: MouseEvent) => {
+          .subscribe((e: MouseEvent) => {
             const noteID: number = $(e.target).attr('noteid') as number;
             $.each($('button[noteid]'), (index, val) => {
-              if ($(val).attr('noteid') === noteID) {
-                this._NoteComponents = this._NoteComponents.filter((i) => Number(i.Component.NoteID)  !== noteID);
+              // tslint:disable-next-line:triple-equals
+              if ($(val).attr('noteid') as number == noteID) {
+                // tslint:disable-next-line:triple-equals
+                this._NoteComponents = this._NoteComponents.filter((i) => i.NoteComponent.NoteID as number != noteID);
                 this._Container.remove(index);
                 return false;
               }
